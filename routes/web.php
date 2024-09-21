@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ListDokterController;
 use App\Http\Controllers\JadwalPasienController;
+use App\Http\Controllers\DasboardController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
