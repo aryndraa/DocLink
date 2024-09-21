@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->integer('number');
             $table->integer('specialist_id');
-            $table->foreign('specialist_id')->references('id')->on('specialists')->onDelete('set null');
-            $table->enum('working_days', ['senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu', 'minggu']);     
+            $table->foreign('specialist_id')->references('id')->on('specialists')->onDelete('cascade');
+            $table->json('working_days');     
             $table->timestamps();
         });
     }

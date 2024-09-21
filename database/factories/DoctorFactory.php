@@ -22,7 +22,10 @@ class DoctorFactory extends Factory
             'email'          => fake()->unique()->email(),
             'number'         => fake()->phoneNumber(),
             'specialist_id'  => Specialist::inRandomOrder()->first()->id,
-            'working_days'   => fake()->randomElement(['senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu', 'minggu']),
+            'working_days'   => json_encode(fake()->randomElements(
+                ['senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu', 'minggu'], 
+                4
+            )),
         ];
     }
 }
