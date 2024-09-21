@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Specialist;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
@@ -17,7 +18,11 @@ class DoctorFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name'           => fake()->unique()->name(),
+            'email'          => fake()->unique()->email(),
+            'number'         => fake()->phoneNumber(),
+            'specialist_id'  => Specialist::inRandomOrder()->first()->id,
+            'working_days'   => fake()->randomElement(['senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu', 'minggu']),
         ];
     }
 }

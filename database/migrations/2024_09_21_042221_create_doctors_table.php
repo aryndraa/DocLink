@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('number');
             $table->integer('specialist_id');
             $table->foreign('specialist_id')->references('id')->on('specialists')->onDelete('set null');
-            $table->enum('working_days', ['senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu', 'minggun']);     
+            $table->enum('working_days', ['senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu', 'minggu']);     
             $table->timestamps();
         });
     }
