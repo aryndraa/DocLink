@@ -26,7 +26,6 @@ class ListDokterController extends Controller
             'number'        => 'required|numeric',
             'specialist_id' => 'required|integer|exists:specialists,id',
             'working_days'  => 'required|string'
-
         ]);
 
         $doctor = Doctor::create($data);
@@ -38,6 +37,4 @@ class ListDokterController extends Controller
         $doctor->delete();
         return response()->json(['message' => 'Doctor deleted successfully']);
     }
-
-
 }
