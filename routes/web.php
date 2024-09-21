@@ -12,4 +12,3 @@ Route::prefix('admin')
                 Route::get('/', 'index')->name('index');
             });
     });
-
