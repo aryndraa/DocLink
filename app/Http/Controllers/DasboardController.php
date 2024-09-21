@@ -34,22 +34,37 @@ class DasboardController extends Controller
         // total data patients todayt
         $totalPatientToday = Patient::query()
             ->whereHas('schedules', function($query) use ($today) {
-                $query->whereDate('created_at', $today);
+                $query->whereDate('consultation_time', Carbon::now()->format('Y-m-d'));
             })
             ->count();
 
         // Active Doctor
         $activeDoctor = Doctor::query()
             ->whereJsonContains('working_days', $today)
-            ->get()->take(10);
+            ->get()
+            ->take(5);
 
         // Schedule today
+        $scheduleToday = Schedule::query()
+            ->whereDate('consultation_time', Carbon::now()->format('Y-m-d'))
+            ->get()
+            ->take(5);
+
+        // jadwal dokteer
+        $doctorPatient = Doctor::query()
+        ->withCount(['schedules' => function($query)  {
+            $query->whereDate('created_at', Carbon::today());
+        }])      
+        ->distinct()
+        ->get();
         
         return response()->json([
             'patientsPerDay'      => $patientsPerDay,
             'totalPatientsToday'  => $totalPatientToday,
             'totalConsultantWeek' => $totalPatientWeek,
             'activeDoctor'        => $activeDoctor,
+            'scheduleToday'       => $scheduleToday,
+            'doctorPatient'       => $doctorPatient
         ]);
     }
 }

@@ -24,7 +24,9 @@ class ScheduleFactory extends Factory
             'complaint'         => fake()->sentence(),
             'payment'           => fake()->randomElement(['BPJS', 'tunai', 'asuransi']),
             'doctor_id'         => Doctor::inRandomOrder()->first()->id,
-            'consultation_time' =>  fake()->time()
+            'consultation_time' => now(),
+            'created_at'        => now(),
+            'updated_at'        => now(),
         ];
     }
 }
