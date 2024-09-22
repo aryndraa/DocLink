@@ -56,10 +56,10 @@
                          <span class="hidden md:block">Riwayat</span>
                     </a>
                     
-                    <a href="{{ route('patient.index') }}" 
+                    <a href="{{ route('schedule.index') }}" 
                        class="text-lg font-bold flex items-center gap-3 lg:border-b-2 pb-0 lg:pb-3 
-                              {{ request()->routeIs('patient.index' ) ? 'text-blue-500 border-primary' : 'text-gray-400 border-transparent' }}">
-                        @if (request()->routeIs('patient'))
+                              {{ request()->routeIs('schedule.index') ? 'text-blue-500 border-primary' : 'text-gray-400 border-transparent' }}">
+                        @if (request()->routeIs('schedule.index'))
                               <img src="{{ asset('assets/jadwal2.svg') }}" alt="icon">
                         @else
                               <img src="{{ asset('assets/jadwal.svg') }}" alt="icon" class="opacity-40">

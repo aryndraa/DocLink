@@ -13,7 +13,7 @@ class Schedule extends Model
         'patient_id',
         'queue_number',
         'complaint',
-        'paymment',
+        'payment',
         'doctor_id',
         'consultation_time'
     ];

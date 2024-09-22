@@ -4,7 +4,7 @@ use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\PatientController;
-
+use App\Http\Controllers\ScheduleController;
 
 Route::prefix('/') 
     ->group(function() {
@@ -31,5 +31,18 @@ Route::prefix('/')
                 Route::get('/', 'index')->name('index');
                 Route::get('/{patient}', 'show')->name('show');
                 Route::post('/store', 'store')->name('store');
+            });
+
+        Route::controller(ScheduleController::class)
+            ->prefix('schedule')
+            ->name('schedule.')
+            ->group(function() {
+                Route::get('/', 'index')->name('index');
+                Route::get('/show/{schedule}', 'show')->name('show');
+                Route::get('/create', 'create')->name('create');
+                Route::post('/store', 'store')->name('store');
+                Route::get('/edit/{schedule}', 'edit')->name('edit');
+                Route::put('/update/{schedule}', 'update')->name('update');
+                Route::delete('/destroy/{schedule}', 'destroy')->name('destroy');
             });
     });

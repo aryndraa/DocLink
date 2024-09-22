@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('patient_id');
             $table->foreign('patient_id')->references('id')->on('patients')->onDelete('set null');
-            $table->integer('queue_number')->unique();
+            $table->integer('queue_number')->nullable();
             $table->string('complaint');
             $table->enum('payment', ['BPJS', 'tunai', 'asuransi']);
             $table->integer('doctor_id')->references('id')->on('doctors')->onDelete('set null');

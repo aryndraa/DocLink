@@ -9,7 +9,6 @@
             {{-- Form Pendaftaran Dokter Baru --}}
             <form action="{{ route('doctor.store') }}" method="POST">
                 @csrf
-
                 <div class="mb-4">
                     <label for="name" class="block text-sm font-medium ">Nama Dokter</label>
                     <input type="text" name="name" id="name" value="{{ old('name') }}" required
