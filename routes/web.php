@@ -9,7 +9,7 @@ use App\Http\Controllers\PatientController;
 Route::prefix('/') 
     ->group(function() {
 
-      Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
         Route::controller(DoctorController::class)
             ->prefix('doctor')
@@ -29,7 +29,12 @@ Route::prefix('/')
             ->name('patient.')
             ->group(function() {
                 Route::get('/', 'index')->name('index');
-                Route::get('/{patient}', 'show')->name('show');
+                Route::get('/show/{patient}', 'show')->name('show'); 
+                Route::get('/create', 'create')->name('create'); 
                 Route::post('/store', 'store')->name('store');
+                Route::get('/edit/{patient}', 'edit')->name('edit');
+                Route::put('/update/{patient}', 'update')->name('update'); 
+                Route::delete('/destroy/{patient}', 'destroy')->name('destroy'); 
             });
     });
+
