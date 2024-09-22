@@ -8,7 +8,7 @@ use App\Http\Controllers\ScheduleController;
 
 Route::prefix('/')
     ->group(function() {
-        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+        Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
         Route::controller(DoctorController::class)
             ->prefix('doctor')
