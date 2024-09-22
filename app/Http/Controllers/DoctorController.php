@@ -38,7 +38,7 @@ class DoctorController extends Controller
         ]);
     }
 
-    public function create() 
+    public function create()
     {
         Carbon::setLocale('id');
         $today = strtolower(Carbon::now()->translatedFormat('l'));
@@ -58,15 +58,15 @@ class DoctorController extends Controller
             'email'         => 'required|email|unique:doctors,email',
             'number'        => 'required|numeric',
             'specialist_id' => 'required|integer|exists:specialists,id',
-            'working_days'  => 'required|array', 
-            'working_days.*'=> 'in:senin,selasa,rabu,kamis,jumat,sabtu,minggu' 
+            'working_days'  => 'required|array',
+            'working_days.*'=> 'in:senin,selasa,rabu,kamis,jumat,sabtu,minggu'
         ]);
 
 
-       
+
         try {
             $data['working_days'] = json_encode($data['working_days']);
-    
+
             Doctor::create($data);
 
             return redirect('/doctor')->with('success', 'Data dokter berhasil ditambah');
@@ -104,10 +104,10 @@ class DoctorController extends Controller
         try {
             // Convert array to JSON before updating
             $data['working_days'] = json_encode($data['working_days']);
-    
+
             // Update the doctor record
             $doctor->update($data);
-    
+
             // Redirect with success message
             return redirect('/doctor')->with('success', 'Data dokter berhasil diperbarui');
         } catch (\Exception $e) {
