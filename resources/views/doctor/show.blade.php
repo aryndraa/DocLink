@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="flex justify-center items-center min-h-[80vh]">
-        <div class="bg-white p-6 w-[40%] rounded-xl">
+        <div class="bg-white p-6 w-full md:w-[40%] rounded-xl">
             <div class="flex items-center justify-between mb-4">
                 <h1 class="text-2xl font-bold">Detail Dokter</h1>
                 <a href="{{ route('doctor.index') }}" class="p-2 bg-gray-100 flex rounded-full">

@@ -48,7 +48,7 @@
                     <a href="{{ route('patient.index') }}" 
                     class="text-lg font-bold flex items-center gap-3 lg:border-b-2 pb-0 lg:pb-3 
                            {{ request()->routeIs('patient.index') ? 'text-blue-500 border-primary' : 'text-gray-400 border-transparent' }}">
-                         @if (request()->routeIs('patient'))
+                         @if (request()->routeIs('patient.index'))
                            <img src="{{ asset('assets/riwayat2.svg') }}" alt="icon">
                          @else
                            <img src="{{ asset('assets/riwayat.svg') }}" alt="icon" class="opacity-40">

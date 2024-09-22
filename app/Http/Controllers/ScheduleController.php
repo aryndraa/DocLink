@@ -44,7 +44,7 @@ class ScheduleController extends Controller
         $doctors = Doctor::all(); // Fetch doctors
     
         return view('schedule.create', [
-            'title' => 'Detail Dokter',
+            'title' => 'Detail Konsultasi',
             'today' => $today,
             'patients' => $patients,
             'doctors' => $doctors,
@@ -75,7 +75,7 @@ class ScheduleController extends Controller
         $patients = Patient::all(); // Load all patients
     
         return view('schedule.edit', [
-            'title' => 'Detail Dokter',
+            'title' => 'Edit Konsultasi',
             'today' => $today,
             'schedule' => $schedule,
             'doctors' => $doctors, // Pass doctors to the view
