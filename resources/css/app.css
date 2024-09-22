@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: "Satoshi-Variable";
+    background-color: #f6f5fa;
+    color: #212122;
+}

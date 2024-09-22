@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('doctors', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
-            $table->string('email')->unique();
+            $table->string('email');
             $table->integer('number');
             $table->integer('specialist_id');
             $table->foreign('specialist_id')->references('id')->on('specialists')->onDelete('cascade');

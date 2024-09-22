@@ -3,22 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Models\Patient;
-use Illuminate\Http\JsonResponse;
 
-class JadwalPasienController extends Controller
+class PatientController extends Controller
 {
-    public function index(): JsonResponse
+    public function index()
     {
         $patients = Patient::with('schedules')->get();
         return response()->json($patients);
     }
 
-    public function show(Patient $patient): JsonResponse
+    public function show(Patient $patient)
     {
         return response()->json($patient->load('schedules')); 
     }
 
-    public function store(): JsonResponse
+    public function store()
     {
         $data = request()->validate([
             'name'   => 'required|string|max:255',
@@ -29,7 +28,7 @@ class JadwalPasienController extends Controller
         return response()->json($patient, 201);
     }
 
-    public function update($id): JsonResponse
+    public function update($id)
     {
         $patient = Patient::findOrFail($id); 
 
@@ -42,7 +41,7 @@ class JadwalPasienController extends Controller
         return response()->json($patient->fresh());
     }
     
-    public function destroy(Patient $patient): JsonResponse
+    public function destroy(Patient $patient)
     {
         $patient->delete();
         return response()->json(['message' => 'Patient deleted successfully'],);
