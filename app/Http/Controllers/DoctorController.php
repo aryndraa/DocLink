@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Doctor;
 
-class ListDokterController extends Controller
+class DoctorController extends Controller
 {
     public function index()
     {
