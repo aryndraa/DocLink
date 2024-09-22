@@ -1,0 +1,25 @@
+
+!!!!!!!
+pastikan device memilki php server, laragon / xampp
+!!!!!!!
+
+1. pastikan device memiliki composer, dan node pkg 
+2. clone epository DocLink / https://github.com/aryndraa/DocLinkdan masuk ke dalam directory DocLink dan buka terminal
+3. jalanakan composer install, tunggu hingga selesai
+4. jalankan npm install
+5. rename file .env.example menjadi .env
+6. jalankan "php artisan key:generate" di terminal
+7. copy database.sqlite yang ada di folder example data dan paste dii dalam folder database
+8. jalankan server apphace / NginX di laragon / xampp
+9. jalankan npm run dev 
+10.buka terminal baru dan jalankan php artisan serve
+11. klik link yang ada pada info "Server running on [http://127.0.0.1:8000]"
+12. jika berhasil maka halaman dashboard akan terbuka 
+13. gunakan example data untuk menambahkan jadwal konsultasi
+
+
+jika mengalami masalah dalam konfigurasi hubungi 
+082144915822 - leader kelompok
+
+
+
